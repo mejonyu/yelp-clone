@@ -20,9 +20,10 @@ const RestaurantDetailPage = () => {
         }
         fetchData();
     }, [])
-
-    return (
+    
+    return (selectedRestaurant && selectedRestaurant.restaurant.id == id &&
         <>
+            <h1 className='text-center display-1'>{selectedRestaurant.restaurant.name}</h1>
             <RestaurantInfo />
             <AddReview />
         </>

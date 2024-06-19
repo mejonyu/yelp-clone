@@ -4,6 +4,9 @@ import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const Reviews = () => {
     const { selectedRestaurant } = useContext(RestaurantsContext);
+
+    
+
     return (
         <div className='container'>
             <div className='row row-cols-3'>

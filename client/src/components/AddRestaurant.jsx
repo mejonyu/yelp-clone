@@ -23,6 +23,7 @@ const AddRestaurant = () => {
             console.log(err);
         }
     }
+
     return (
         <div className="mb-4">
             <form action="">

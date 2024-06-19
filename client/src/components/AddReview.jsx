@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import RestaurantFinder from '../apis/RestaurantFinder';
 
 const AddReview = () => {
+    const { id } = useParams();
     const [name, setName] = useState("");
     const [rating, setRating] = useState("Rating");
     const [review, setReview] = useState("");
+
+    const createReview = async (e) => {
+        e.preventDefault();
+        const response = await RestaurantFinder.post(`/${id}/addReview`, {
+            name,
+            review,
+            rating,
+        });
+        console.log(response);
+    };
 
     return (
         <div className='mb-2'>
@@ -34,7 +47,7 @@ const AddReview = () => {
                     </div>
                     <div className='row mb-2'>
                         <div className='col'>
-                            <button className="btn btn-primary">Submit</button>
+                            <button type='submit' onClick={createReview} className="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
