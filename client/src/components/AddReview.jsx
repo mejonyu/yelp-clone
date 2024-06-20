@@ -10,12 +10,12 @@ const AddReview = () => {
 
     const createReview = async (e) => {
         e.preventDefault();
-        const response = await RestaurantFinder.post(`/${id}/addReview`, {
+        await RestaurantFinder.post(`/${id}/addReview`, {
             name,
             review,
             rating,
         });
-        console.log(response);
+        window.location.reload();
     };
 
     return (

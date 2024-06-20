@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RestaurantFinder from '../apis/RestaurantFinder';
 import { RestaurantsContext } from '../context/RestaurantsContext';
+import StarRating from './StarRating';
+import AverageRating from './AverageRating';
 
 const RestaurantList = () => {
     const { restaurants, setRestaurants } = useContext(RestaurantsContext);
@@ -60,7 +62,7 @@ const RestaurantList = () => {
                                     <td>{restaurant.name}</td>
                                     <td>{restaurant.location}</td>
                                     <td>{"$".repeat(restaurant.price_range)}</td>
-                                    <td>Reviews</td>
+                                    <td><AverageRating restaurant={restaurant} /></td>
                                     <td><button onClick={(e) => handleUpdate(e, restaurant.id)} className="btn btn-warning">Update</button></td>
                                     <td><button onClick={(e) => handleDelete(e, restaurant.id)} className="btn btn-danger">Delete</button></td>
                                 </tr>
